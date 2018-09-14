@@ -1,0 +1,57 @@
+<template lang="html">
+  <div class="producers-component">
+    <h2 class="producers-component_title">
+      Dostępne marki
+    </h2>
+    <ul class="producers-component_list">
+      <li class="producers-component_item" v-for="producer in producers" :key="producer._id">
+        <router-link :to="{ name: 'ProducerPage', params: { slug: producer.slug } }">
+          <img :src="producer.photo" :alt="producer.name" />
+          {{ producer.name }}
+        </router-link>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "producers-component",
+  props: ["producers"]
+};
+</script>
+
+<style lang="scss" scoped>
+@import "../../../scss/_variable";
+
+.producers-component {
+  &_title {
+    font: 600 26px/1.3 $font-primary;
+    color: #000;
+    padding: 0 0 30px;
+  }
+  &_list {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+  &_item {
+    font: 600 14px/1.3 $font-primary;
+    color: #000;
+    text-align: center;
+    a {
+      color: #000;
+      display: block;
+      &:hover {
+        color: #969696;
+      }
+    }
+    img {
+      display: block;
+      max-width: 80px;
+      margin: 0 auto 5px;
+    }
+  }
+}
+</style>
