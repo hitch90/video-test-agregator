@@ -12,6 +12,7 @@ import AdminVideos from "/imports/ui/admin/Videos";
 import AdminEditVideo from "/imports/ui/admin/EditVideo";
 import ProducerPage from "/imports/ui/Producer";
 import ModelPage from "/imports/ui/Models";
+import ChannelPage from "/imports/ui/Channel";
 export default [
   {
     path: "/",
@@ -82,6 +83,11 @@ export default [
     path: "/m/:slug",
     name: "ModelPage",
     component: ModelPage
+  },
+  {
+    path: "/c/:slug",
+    name: "ChannelPage",
+    component: ChannelPage
   }
   // {
   //   path: "/page/:slug/:id",

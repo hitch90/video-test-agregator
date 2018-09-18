@@ -47,4 +47,11 @@ export default {
 </script>
 
 <style lang="css">
+.component-nav_subNavModels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 15px;
+  padding: 15px;
+  grid-row-gap: 15px;
+}
 </style>

@@ -3,7 +3,7 @@
     <h2 class="channels-list-component_title" v-if="header" v-html="header"></h2>
     <ul class="channels-list-component_list">
       <li class="channels-list-component_item" v-for="channel in channels" :key="channel._id">
-        <router-link :to="{ name: 'ProducerPage', params: { slug: channel.slug } }" class="channels-list-component_link">
+        <router-link :to="{ name: 'ChannelPage', params: { slug: channel.slug } }" class="channels-list-component_link">
           <div class="channels-list-component_image">
             <img :src="channel.photo" :alt="channel.name" />
             <!-- <span>{{ channel.producer.name }} {{ channel.model.name }}</span> -->

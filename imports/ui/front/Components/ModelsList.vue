@@ -61,11 +61,11 @@ export default {
     img {
       height: 180px;
       width: auto;
-
       max-width: none;
       position: absolute;
       top: 50%;
       left: 50%;
+      transition: 0.3s;
       transform: translateX(-50%) translateY(-50%);
     }
     span {
@@ -83,6 +83,11 @@ export default {
       display: block;
       &:hover {
         color: #969696;
+        .models-list-component_image {
+          img {
+            transform: translateX(-50%) translateY(-50%) scale(1.1);
+          }
+        }
       }
     }
     p {

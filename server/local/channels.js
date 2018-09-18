@@ -4,10 +4,13 @@ export const Channels = new Mongo.Collection("channels");
 
 Meteor.methods({
   "channels.all"() {
-    return Channels.find().fetch();
+    return Channels.find({}, { sort: { slug: 1 } }).fetch();
   },
   "channels.id"(id) {
     return Channels.findOne({ _id: id });
+  },
+  "channels.slug"(slug) {
+    return Channels.findOne({ slug });
   },
   "channels.add"(product) {
     const isAdded = Channels.find({ _id: product._id }).count();
