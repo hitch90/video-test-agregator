@@ -1,6 +1,8 @@
 <template lang="html">
   <li class="nav-model">
-    <router-link class="nav-model_link" :to="{ name: 'ModelPage', params: { slug: model.slug } }">
+    <router-link
+      class="nav-model_link"
+      :to="{ name: 'ModelPage', params: { slug: model.slug } }">
       <div class="nav-model_image">
         <img :src="model.photo" :alt="model.name"  />
         <span class="nav-model_name">

@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="videos-list-component">
-    <h2 class="videos-list-component_title" v-html="header"></h2>
+    <h2 class="videos-list-component_title" v-if="header" v-html="header"></h2>
     <ul class="videos-list-component_list" :class="`is-${items}`">
       <li class="videos-list-component_item" v-for="video in videos" :key="video._id">
-        <router-link :to="{ name: 'ProducerPage', params: { slug: video.slug } }">
+        <router-link :to="{ name: 'VideoPage', params: { id: video._id } }">
           <div class="videos-list-component_image">
             <img :src="video.photo" :alt="video.name" />
             <span class="videos-list-component_duration">{{ duration(video.duration) }}</span>

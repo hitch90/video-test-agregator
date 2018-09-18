@@ -50,6 +50,11 @@ export default {
         this.open = type;
       }
     }
+  },
+  watch: {
+    $route() {
+      this.open = "";
+    }
   }
 };
 </script>

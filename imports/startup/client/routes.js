@@ -13,6 +13,7 @@ import AdminEditVideo from "/imports/ui/admin/EditVideo";
 import ProducerPage from "/imports/ui/Producer";
 import ModelPage from "/imports/ui/Models";
 import ChannelPage from "/imports/ui/Channel";
+import VideoPage from "/imports/ui/Video";
 export default [
   {
     path: "/",
@@ -88,6 +89,11 @@ export default [
     path: "/c/:slug",
     name: "ChannelPage",
     component: ChannelPage
+  },
+  {
+    path: "/v/:id",
+    name: "VideoPage",
+    component: VideoPage
   }
   // {
   //   path: "/page/:slug/:id",

@@ -11,7 +11,9 @@
       </ul>
       <div class="component-nav_subNavContent producers" v-if="models">
         <ul class="component-nav_subNavModels">
-          <model-item v-for="model in models" :model="model" :key="model._id"></model-item>
+          <model-item
+            v-for="model in models"
+            :model="model" :key="model._id"></model-item>
         </ul>
       </div>
     </div>

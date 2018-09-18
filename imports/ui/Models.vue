@@ -6,7 +6,6 @@
         Pozostałe {{ producer.name }}
       </h2>
       <models-list :models="otherModels" :producer="producer.name" display="block" />
-
     </div>
     <div class="model-page_content">
       <h2 class="model-page_title">
@@ -15,6 +14,7 @@
       <videos-list :videos="videos" items="2" />
     </div>
     <div class="model-page_channels">
+      <engines-component :engines="model.engines" />
       <h2 class="model-page_subtitle">
         Kanały
       </h2>
@@ -27,6 +27,7 @@ import { mapGetters } from "vuex";
 import VideosList from "./front/Components/VideosList";
 import ModelsList from "./front/Components/ModelsList";
 import ChannelsList from "./front/Components/ChannelsList";
+import EnginesComponent from "./front/Components/Engines";
 
 export default {
   name: "model-page",
@@ -35,7 +36,7 @@ export default {
       langs: "langVars"
     })
   },
-  components: { VideosList, ModelsList, ChannelsList },
+  components: { VideosList, ModelsList, ChannelsList, EnginesComponent },
   data() {
     return {
       model: null,
@@ -88,6 +89,7 @@ export default {
   &_title {
     font: 600 26px/1.3 $font-primary;
     color: #000;
+    margin: 0 0 30px;
   }
   &_subtitle {
     font: 600 18px/1.3 $font-primary;
@@ -95,7 +97,7 @@ export default {
     margin: 0 0 15px;
   }
   &_channels {
-    padding: 20px;
+    padding: 0 20px 20px;
 
     border-left: 1px solid #e6e6e6;
   }

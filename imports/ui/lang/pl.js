@@ -25,6 +25,12 @@ export default {
     admin: "Panel admina",
     logout: "Wyloguj",
     achievement: "Osiągnięcia",
-    friends: "Znajomi"
+    friends: "Znajomi",
+    channels_list: "Lista kanałów",
+    channels_add: "Dodaj kanał",
+    producers: "Lista producentów",
+    producers_add: "Dodaj producenta",
+    models: "Lista modeli",
+    models_add: "Dodaj model"
   }
 };

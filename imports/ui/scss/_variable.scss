@@ -1,6 +1,5 @@
 $font-primary: "Ubuntu";
 $font-secondary: "Lato";
-
 @mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
   overflow: hidden;
   position: relative;
@@ -23,5 +22,24 @@ $font-secondary: "Lato";
     height: 1em;
     margin-top: 0.2em;
     background: $bgColor;
+  }
+}
+
+$phone: "(min-width: 480px)";
+$tablet: "(min-width: 768px)";
+$tablet-big: "(min-width: 980px)";
+$desktop: "(min-width: 1200px)";
+$desktop-big: "(min-width: 1400px)";
+$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)";
+$retina: "(min--moz-device-pixel-ratio: 1.5),
+                    (-o-min-device-pixel-ratio: 3/2),
+                    (-webkit-min-device-pixel-ratio: 1.5),
+                    (min-device-pixel-ratio: 1.5),
+                    (min-resolution: 144dpi),
+                    (min-resolution: 1.5dppx)";
+
+@mixin media($media) {
+  @media only screen and #{$media} {
+    @content;
   }
 }
