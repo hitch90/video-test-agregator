@@ -11,6 +11,7 @@ import AdminEditModel from "/imports/ui/admin/EditModel";
 import AdminVideos from "/imports/ui/admin/Videos";
 import AdminEditVideo from "/imports/ui/admin/EditVideo";
 import ProducerPage from "/imports/ui/Producer";
+import ModelPage from "/imports/ui/Models";
 export default [
   {
     path: "/",
@@ -76,6 +77,11 @@ export default [
     path: "/p/:slug",
     name: "ProducerPage",
     component: ProducerPage
+  },
+  {
+    path: "/m/:slug",
+    name: "ModelPage",
+    component: ModelPage
   }
   // {
   //   path: "/page/:slug/:id",

@@ -67,7 +67,6 @@ export default {
   border-radius: 8px;
   &_section {
     padding: 50px 0;
-    margin-bottom: 50px;
     border-bottom: 1px solid #e4e4e4;
     &.top {
       display: grid;

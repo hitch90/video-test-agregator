@@ -9,6 +9,9 @@ Meteor.methods({
   "models.id"(id) {
     return Models.findOne({ _id: id });
   },
+  "models.slug"(slug) {
+    return Models.findOne({ slug });
+  },
   "models.add"(product) {
     const isAdded = Models.find({ _id: product._id }).count();
     if (isAdded == 0) {

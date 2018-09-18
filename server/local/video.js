@@ -16,6 +16,12 @@ Meteor.methods({
   "videos.promo"() {
     return Videos.findOne({ promo: true }, { sort: { created_at: -1 } });
   },
+  "videos.producer"(id) {
+    return Videos.find({ "producer._id": id }).fetch();
+  },
+  "videos.model"(id) {
+    return Videos.find({ "model._id": id }).fetch();
+  },
   "videos.id"(id) {
     return Videos.findOne({ _id: id });
   },

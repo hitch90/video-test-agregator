@@ -1,14 +1,17 @@
 <template>
-  <div class="producer-page">
-    <h2 class="producer-page_title">
-      {{ producer.name }}
-    </h2>
-    <models-list :models="models" :producer="producer.name" />
+  <div class="producer-page" v-if="producer">
+    <div class="producer-page_section">
+      <models-list :models="models" :producer="producer.name" :header="`<span>${producer.name}</span> - wybierz model`" />
+    </div>
+    <div class="producer-page_section">
+      <videos-list :videos="videos" :producer="producer.name" :header="`Testy video <span>${producer.name}</span>`" />
+    </div>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import ModelsList from "./front/Components/ModelsList";
+import VideosList from "./front/Components/VideosList";
 export default {
   name: "producer-page",
   computed: {
@@ -16,11 +19,12 @@ export default {
       langs: "langVars"
     })
   },
-  components: { ModelsList },
+  components: { ModelsList, VideosList },
   data() {
     return {
       producer: null,
-      models: null
+      models: null,
+      videos: null
     };
   },
   mounted() {
@@ -36,6 +40,9 @@ export default {
           Meteor.call("models.producer", this.producer._id, (error, result) => {
             this.models = result;
           });
+          Meteor.call("videos.producer", this.producer._id, (error, result) => {
+            this.videos = result;
+          });
         }
       );
       // Meteor.call("videos.all", (error, result) => {
@@ -49,5 +56,9 @@ export default {
 @import "./scss/_variable";
 @import "./scss/_colors";
 .producer-page {
+  &_section {
+    padding: 50px 0;
+    border-bottom: 1px solid #e4e4e4;
+  }
 }
 </style>

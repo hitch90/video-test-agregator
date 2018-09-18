@@ -53,8 +53,9 @@
                   </b-field>
                   <h2>Wersje silnikowe</h2>
                   <ul>
-                    <li v-for="engine in form.engines">
+                    <li v-for="(engine, index) in form.engines">
                       {{ engine.capacity }} - {{ engine.fuel }}
+                      <a href="#" @click.prevent="removeRow('engine', index)">x</a>
                     </li>
                   </ul>
                   <b-field grouped style="align-items:center">
@@ -81,7 +82,23 @@
                       <b-input v-model="form.engine.torque" type="text"></b-input>
                     </b-field>
                     <b-field>
-                      <button class="button is-primary" @click.prevent="addEngineVersion">Dodaj silnik</button>
+                      <button class="button is-info" @click.prevent="addEngineVersion">Dodaj silnik</button>
+                    </b-field>
+                  </b-field grouped>
+                  <hr />
+                  <h2>Zdjęcia</h2>
+                  <ul>
+                    <li v-for="(photo, index) in form.photos">
+                      {{ photo }}
+                      <a href="#" @click.prevent="removeRow('photos', index)">x</a>
+                    </li>
+                  </ul>
+                  <b-field grouped>
+                    <b-field>
+                      <b-input v-model="photoUrl" type="text"></b-input>
+                    </b-field>
+                    <b-field>
+                      <button class="button is-info" @click.prevent="addPhoto">Dodaj</button>
                     </b-field>
                   </b-field grouped>
                   <b-field>
@@ -115,6 +132,7 @@ export default {
   data() {
     return {
       fuels: ["Benzyna", "Diesel", "Hybryda", "Elektryczny", "LPG"],
+      photoUrl: "/images/models/",
       form: {
         name: "",
         description: "",
@@ -126,7 +144,8 @@ export default {
           capacity: "",
           fuel: 0
         },
-        engines: []
+        engines: [],
+        photos: []
       },
       producers: null
     };
@@ -144,6 +163,7 @@ export default {
         this.form.description = this.model.description;
         this.form.producer = this.model.producer;
         this.form.engines = this.model.engines;
+        this.form.photos = this.model.photos;
       }
     },
     addEngineVersion() {
@@ -154,6 +174,19 @@ export default {
         capacity: ""
       };
     },
+    removeRow(type, index) {
+      if (type == "engine") {
+        this.form.engines.splice(index, 1);
+      }
+      if (type == "photos") {
+        this.form.photos.splice(index, 1);
+      }
+    },
+    addPhoto() {
+      console.log("a");
+      this.form.photos.push(this.photoUrl);
+      this.photoUrl = "/images/models";
+    },
     saveProducer() {
       const model = {
         name: this.form.name,
@@ -161,7 +194,8 @@ export default {
         slug: this.form.name.toLowerCase().replace(/ /g, "-"),
         description: this.form.description,
         producer: this.form.producer,
-        engines: this.form.engines
+        engines: this.form.engines,
+        photos: this.form.photos
       };
       if (this.action == "add") {
         Meteor.call("models.add", model, (error, result) => {
