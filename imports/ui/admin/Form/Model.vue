@@ -9,7 +9,7 @@
                         <div class="field">
                             <label class="label">Nazwa</label>
                             <p class="control has-icons-left">
-                                <input class="input" type="text" placeholder="Nazwa producenta" v-model="form.name" />
+                                <input class="input" type="text" placeholder="Nazwa" v-model="form.name" />
                                 <span class="icon is-small is-left">
                                     <font-awesome-icon :icon="['fas', 'file-alt']" />
                                 </span>
@@ -20,7 +20,18 @@
                         <div class="field">
                             <label class="label">Zdjęcie (nazwa pliku)</label>
                             <p class="control has-icons-left">
-                                <input class="input" type="text" placeholder="Logo" v-model="form.photo" />
+                                <input class="input" type="text" placeholder="Zdjęcie główne" v-model="form.photo" />
+                                <span class="icon is-small is-left">
+                                    <font-awesome-icon :icon="['fas', 'file-alt']" />
+                                </span>
+                            </p>
+                      </div>
+                    </div>
+                      <div class="column">
+                        <div class="field">
+                            <label class="label">Cena (od)</label>
+                            <p class="control has-icons-left">
+                                <input class="input" type="text" placeholder="Cena" v-model="form.price" />
                                 <span class="icon is-small is-left">
                                     <font-awesome-icon :icon="['fas', 'file-alt']" />
                                 </span>
@@ -60,7 +71,7 @@
                   </ul>
                   <b-field grouped style="align-items:center">
                     <b-field label="Paliwo">
-                      <b-select placeholder="Wybierz producenta" v-model="form.engine.fuel">
+                      <b-select placeholder="Wybierz paliwo" v-model="form.engine.fuel">
                         <option value="0">
                           Wybierz paliwo
                         </option>
@@ -138,6 +149,7 @@ export default {
         description: "",
         photo: "/images/models/",
         producer: 0,
+        price: 0,
         engine: {
           power: "",
           torque: "",
@@ -164,6 +176,9 @@ export default {
         this.form.producer = this.model.producer;
         this.form.engines = this.model.engines;
         this.form.photos = this.model.photos;
+        if (this.model.price) {
+          this.form.price = this.model.price;
+        }
       }
     },
     addEngineVersion() {
@@ -183,7 +198,6 @@ export default {
       }
     },
     addPhoto() {
-      console.log("a");
       this.form.photos.push(this.photoUrl);
       this.photoUrl = "/images/models";
     },
@@ -195,7 +209,8 @@ export default {
         description: this.form.description,
         producer: this.form.producer,
         engines: this.form.engines,
-        photos: this.form.photos
+        photos: this.form.photos,
+        price: this.form.price
       };
       if (this.action == "add") {
         Meteor.call("models.add", model, (error, result) => {
@@ -216,6 +231,7 @@ export default {
               message: "Model zaktualizowany",
               type: "is-success"
             });
+            window.location = "/admin/models";
           }
         });
       }
