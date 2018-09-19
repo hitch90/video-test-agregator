@@ -6,7 +6,9 @@
     <ul class="producers-component_list">
       <li class="producers-component_item" v-for="producer in producers" :key="producer._id">
         <router-link :to="{ name: 'ProducerPage', params: { slug: producer.slug } }">
-          <img :src="producer.photo" :alt="producer.name" />
+          <div class="producers-component_image">
+            <img :src="producer.photo" :alt="producer.name" />
+          </div>
           {{ producer.name }}
         </router-link>
       </li>
@@ -36,6 +38,18 @@ export default {
     grid-column-gap: 30px;
     grid-row-gap: 30px;
   }
+  &_image {
+    height: 80px;
+    margin: 0 auto 5px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      max-width: 80px;
+      width: 100%;
+    }
+  }
   &_item {
     font: 600 14px/1.3 $font-primary;
     color: #000;
@@ -46,11 +60,6 @@ export default {
       &:hover {
         color: #969696;
       }
-    }
-    img {
-      display: block;
-      max-width: 80px;
-      margin: 0 auto 5px;
     }
   }
 }
