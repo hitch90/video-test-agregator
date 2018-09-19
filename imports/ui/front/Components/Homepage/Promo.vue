@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="promo-component" v-if="video">
-    <div class="video-component">
+    <router-link :to="{ name: 'VideoPage', params: { id: video.video_id} }" class="video-component">
       <div class="video-component_image">
         <img :src="video.photo" alt="Placeholder image">
         <span class="video-component_channelImg">
@@ -17,7 +17,7 @@
         <p class="video-component_name">{{ video.name }}</p>
         <div class="video-component_desc" v-html="video.description.substr(0, 360) + '...'" />
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -45,10 +45,19 @@ export default {
 .promo-component {
   overflow: hidden;
   .video-component {
+    &:hover {
+      .video-component_image {
+        img {
+          filter: grayscale(100%);
+        }
+      }
+    }
     &_image {
       position: relative;
       img {
         display: block;
+        filter: grayscale(0);
+        transition: 0.3s;
       }
     }
     &_duration {

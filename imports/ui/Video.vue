@@ -21,7 +21,7 @@
             </router-link>
           </h3>
           <p class="video-page_carEngine">
-            {{ video.engine.capacity }}, {{ video.engine.power }}KM<br />
+            <span class="video-page_option">Silnik</span> {{ video.engine.capacity }}, {{ video.engine.power }}KM<br />
             <span class="video-page_option">Maksymalny moment</span> {{ video.engine.torque }}<br />
             <span class="video-page_label" :class="video.engine.fuel">
               {{ video.engine.fuel }}
@@ -128,7 +128,7 @@ export default {
   }
   &_desc {
     font: 400 14px/1.5 $font-secondary;
-    padding: 30px 0;
+    padding: 0 0 30px;
     border-bottom: 1px solid #e6e6e6;
     margin: 0 0 30px;
     white-space: pre-wrap;
@@ -165,7 +165,6 @@ export default {
       font: 600 13px/1.3 $font-primary;
       img {
         width: 40px;
-        height: 40px;
         margin-right: 10px;
         filter: grayscale(0);
         transition: 0.3s;
