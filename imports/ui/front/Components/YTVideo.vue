@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="videoWrapper">
     <!-- Copy & Pasted from YouTube -->
-    <iframe width="560" height="349" :src="`http://www.youtube.com/embed/${id}?rel=0&hd=1`" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="349" :src="`//www.youtube.com/embed/${id}?rel=0&hd=1`" frameborder="0" allowfullscreen></iframe>
 </div>
 </template>
 
