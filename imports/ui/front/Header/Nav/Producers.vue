@@ -56,4 +56,8 @@ export default {
   padding: 15px;
   grid-row-gap: 15px;
 }
+.component-nav_subNavList {
+  max-height: 350px;
+  overflow: auto;
+}
 </style>
