@@ -7,8 +7,6 @@
     <div class="component-homepage_section producers">
       <producers-component :producers="producers" />
     </div>
-    <!-- <video-item v-for="video in videos" :video="video" :key="video._id" /> -->
-
   </div>
 </template>
 <script>
@@ -64,15 +62,45 @@ export default {
 @import "./scss/_colors";
 .component-homepage {
   margin: 0 auto;
-  border-radius: 8px;
   &_section {
-    padding: 50px 0;
+    padding: 0 15px 15px;
     border-bottom: 1px solid #e4e4e4;
+    @include media($tablet-big) {
+      padding: 50px 0;
+    }
     &.top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 50px;
-      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      @include media($tablet-big) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 50px;
+        align-items: center;
+      }
+    }
+    &.producers {
+      padding: 15px;
+      @include media($tablet-big) {
+        padding: 50px 0;
+      }
+    }
+  }
+  &_sectionWeekly {
+    width: 100%;
+    order: 2;
+    @include media($tablet-big) {
+      width: auto;
+      order: 1;
+    }
+  }
+  &_sectionPromos {
+    width: 100%;
+    order: 1;
+    margin: 0 0 15px;
+    @include media($tablet-big) {
+      width: auto;
+      margin: 0;
+      order: 2;
     }
   }
 }

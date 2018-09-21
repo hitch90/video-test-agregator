@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="promo-component" v-if="video">
-    <router-link :to="{ name: 'VideoPage', params: { id: video.video_id} }" class="video-component">
+    <router-link :to="{ name: 'VideoPage', params: { id: video._id} }" class="video-component">
       <div class="video-component_image">
         <img :src="video.photo" alt="Placeholder image">
         <span class="video-component_channelImg">

@@ -8,7 +8,7 @@
         v-for="(video, index) in videos"
         :video="video"
         :key="video._id"
-        v-if="index < 3" />
+        v-if="index < 6" />
     </ul>
   </div>
 </template>
@@ -33,16 +33,24 @@ export default {
 
 .weekly-component {
   &_title {
-    font: 600 26px/1.3 $font-primary;
+    font: 600 18px/1.3 $font-primary;
     color: #000;
-    margin: 0 0 30px;
+    margin: 0 0 15px;
     text-transform: capitalize;
+    @include media($tablet-big) {
+      font: 600 26px/1.3 $font-primary;
+      margin: 0 0 30px;
+    }
   }
   &_list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 15px;
     grid-row-gap: 15px;
+    grid-row-gap: 15px;
+    @include media($tablet-big) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
   &_item {
     &Image {
@@ -63,28 +71,33 @@ export default {
       border-radius: 3px;
     }
     &Subname {
-      font: 600 14px/1.3 $font-primary;
+      font: 600 12px/1.3 $font-primary;
       color: #969696;
-      margin: 0 0 10px;
-      padding: 0 10px;
+      margin: 0 0 5px;
+      padding: 0 0;
+      @include media($tablet-big) {
+        font: 600 14px/1.3 $font-primary;
+        margin: 0 0 10px;
+        padding: 0 10px;
+      }
     }
     &Name {
-      $font-size: 14px;
-      $line-height: 1.3;
-      $lines-to-show: 2;
-      font: 600 14px/1.3 $font-primary;
+      font: 600 12px/1.3 $font-primary;
       display: block; /* Fallback for non-webkit */
       display: -webkit-box;
       color: #000;
-      padding: 0 10px;
-      height: 36px;
+      padding: 0;
+      height: 30px;
       margin: 0 auto;
-      font-size: $font-size;
-      line-height: $line-height;
-      -webkit-line-clamp: $lines-to-show;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      @include media($tablet-big) {
+        font: 600 14px/1.3 $font-primary;
+        padding: 0 10px;
+        height: 36px;
+      }
     }
   }
 }

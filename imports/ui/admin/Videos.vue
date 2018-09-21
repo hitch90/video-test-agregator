@@ -13,7 +13,9 @@
       <div class="column">
         <b-tabs v-model="activeTab">
               <b-tab-item label="Lista filmów">
-                  <video-item  v-for="video in videos" :video="video" :key="video._id" @update-list="getVideo" />
+                <div class="columns is-multiline">
+                  <video-item class="column is-3" v-for="video in videos" :video="video" :key="video._id" @update-list="getVideo" />
+                </div>
               </b-tab-item>
               <b-tab-item label="Dodaj nowy film">
                   <add-video-form @update-list="getVideo" />

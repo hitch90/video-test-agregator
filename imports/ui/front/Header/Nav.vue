@@ -7,6 +7,12 @@
       <li class="component-nav_listItem">
         <a class="component-nav_link" href="#" @click.prevent="openMenu('channel')">Kanały</a>
       </li>
+      <li class="component-nav_listItem">
+        <a class="component-nav_link" href="#">Prześlij film</a>
+      </li>
+      <li class="component-nav_listItem">
+        <a class="component-nav_link" href="#">O nas</a>
+      </li>
     </ul>
     <producers-component class="component-nav_subNav" :producers="producers" :open="open" />
     <channels-component class="component-nav_subNav" :channels="channels" :open="open" />

@@ -12,7 +12,9 @@
     <div class="">
       <b-tabs v-model="activeTab">
             <b-tab-item label="Lista producentów">
-                <producer-item  v-for="producer in producers" :producer="producer" :key="producer._id" @update-list="getProducers" />
+              <div class="columns is-multiline">
+                <producer-item class="column is-3" v-for="producer in producers" :producer="producer" :key="producer._id" @update-list="getProducers" />
+              </div>
             </b-tab-item>
             <b-tab-item label="Dodaj nowego producenta">
                 <add-producer-form @update-list="getProducers" />
