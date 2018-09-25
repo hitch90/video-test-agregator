@@ -2,7 +2,7 @@
   <div class="videos-list-component">
     <h2 class="videos-list-component_title" v-if="header" v-html="header"></h2>
     <ul class="videos-list-component_list" :class="`is-${items}`">
-      <li class="videos-list-component_item" v-for="video in videos" :key="video._id">
+      <li class="videos-list-component_item" v-for="(video, index) in videos" :key="video._id" v-if="(showItems && index < showItems) || (!showItems)">
         <router-link :to="{ name: 'VideoPage', params: { id: video._id } }">
           <div class="videos-list-component_image">
             <img :src="video.photo" :alt="video.name" />
@@ -26,7 +26,7 @@ import ytDurationFormat from "youtube-duration-format";
 
 export default {
   name: "videos-list-component",
-  props: ["videos", "header", "items"],
+  props: ["videos", "header", "items", "showItems"],
   methods: {
     duration(time) {
       return ytDurationFormat(time);
