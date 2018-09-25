@@ -3,7 +3,7 @@
     <h2 class="videos-component_title">
       Ostatnio dodane videotesty
     </h2>
-    <videos-list :videos="videos" />
+    <videos-list :videos="videos.slice(0, 10);" />
   </div>
 </template>
 

@@ -5,7 +5,7 @@ import { getLastWeek } from "../../imports/ui/helpers/date";
 
 Meteor.methods({
   "videos.all"() {
-    return Videos.find().fetch();
+    return Videos.find({}, { sort: { created_at: -1 } }).fetch();
   },
   "videos.weekly"() {
     return Videos.find({
