@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="weekly-component">
     <h2 class="weekly-component_title">
-      Weekly featured
+      Najnowsze testy
     </h2>
     <ul class="weekly-component_list">
       <weekly-item class="weekly-component_listItem"

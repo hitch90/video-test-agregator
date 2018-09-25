@@ -7,6 +7,12 @@
     <div class="component-homepage_section producers">
       <producers-component :producers="producers" />
     </div>
+    <div class="component-homepage_section models">
+      <models-component :models="models" />
+    </div>
+    <div class="component-homepage_section videos">
+      <videos-component :videos="videos" />
+    </div>
   </div>
 </template>
 <script>
@@ -15,6 +21,8 @@ import VideoItem from "./front/Components/Video";
 import WeeklyItems from "./front/Components/Homepage/Weekly";
 import PromoItems from "./front/Components/Homepage/Promo";
 import ProducersComponent from "./front/Components/Homepage/Producers";
+import ModelsComponent from "./front/Components/Homepage/Models";
+import VideosComponent from "./front/Components/Homepage/Videos";
 export default {
   name: "homepage",
   computed: {
@@ -26,14 +34,17 @@ export default {
     VideoItem,
     WeeklyItems,
     PromoItems,
-    ProducersComponent
+    ProducersComponent,
+    ModelsComponent,
+    VideosComponent
   },
   data() {
     return {
       videos: null,
       weeklyVideos: null,
       promo: null,
-      producers: null
+      producers: null,
+      models: null
     };
   },
   mounted() {
@@ -52,6 +63,9 @@ export default {
       });
       Meteor.call("producers.all", (error, result) => {
         this.producers = result;
+      });
+      Meteor.call("models.homepage", (error, result) => {
+        this.models = result;
       });
     }
   }

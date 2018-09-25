@@ -6,7 +6,8 @@
         <router-link :to="{ name: 'ModelPage', params: { slug: model.slug } }">
           <div class="models-list-component_image">
             <img :src="model.photo" :alt="model.name" />
-            <span>{{ producer }}</span>
+            <span v-if="producer">{{ producer }}</span>
+            <span v-if="!producer"> {{ getProducer(model.producer)[0].name }}</span>
           </div>
           <p>
             {{ model.name }}
@@ -20,7 +21,38 @@
 <script>
 export default {
   name: "models-list-component",
-  props: ["producer", "models", "header", "display"]
+  props: ["producer", "models", "header", "display"],
+  data() {
+    return {
+      producers: null
+    };
+  },
+  mounted() {
+    this.getProducers();
+  },
+  methods: {
+    getProducers() {
+      if (!this.producer) {
+        Meteor.call("producers.all", (error, result) => {
+          if (result) {
+            this.producers = result;
+          }
+        });
+      }
+    },
+    getProducer(id) {
+      if (this.producers) {
+        return this.producers.filter(option => {
+          return (
+            option._id
+              .toString()
+              .toLowerCase()
+              .indexOf(id.toLowerCase()) >= 0
+          );
+        });
+      }
+    }
+  }
 };
 </script>
 
@@ -29,22 +61,34 @@ export default {
 
 .models-list-component {
   &_title {
-    font: 600 26px/1.3 $font-primary;
+    font: 600 18px/1.3 $font-primary;
     color: #000;
-    padding: 0 0 30px;
+    padding: 0 0 15px;
+    @include media($tablet-big) {
+      font: 600 26px/1.3 $font-primary;
+      padding: 0 0 30px;
+    }
     span {
       font-weight: 400;
     }
   }
   &_list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    @include media($tablet-big) {
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+    }
     &.block {
       display: block;
       .models-list-component_item {
-        margin: 0 0 25px;
+        margin: 0 0 15px;
+        @include media($tablet-big) {
+          margin: 0 0 25px;
+        }
       }
       .models-list-component_image {
         height: 120px;
@@ -56,10 +100,13 @@ export default {
   }
   &_image {
     position: relative;
-    height: 160px;
+    height: 100px;
     overflow: hidden;
+    @include media($tablet-big) {
+      height: 160px;
+    }
     img {
-      height: 180px;
+      height: 120px;
       width: auto;
       max-width: none;
       position: absolute;
@@ -67,6 +114,9 @@ export default {
       left: 50%;
       transition: 0.3s;
       transform: translateX(-50%) translateY(-50%);
+      @include media($tablet-big) {
+        height: 180px;
+      }
     }
     span {
       position: absolute;

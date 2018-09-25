@@ -57,8 +57,11 @@ export default {
 @import "./scss/_colors";
 .producer-page {
   &_section {
-    padding: 50px 0;
+    padding: 15px;
     border-bottom: 1px solid #e4e4e4;
+    @include media($tablet-big) {
+      padding: 50px 0;
+    }
   }
 }
 </style>

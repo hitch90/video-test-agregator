@@ -6,6 +6,9 @@ Meteor.methods({
   "models.all"() {
     return Models.find({}, { sort: { slug: 1 } }).fetch();
   },
+  "models.homepage"() {
+    return Models.find({}, { limit: 10 }).fetch();
+  },
   "models.id"(id) {
     return Models.findOne({ _id: id });
   },

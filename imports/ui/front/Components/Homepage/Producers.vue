@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="producers-component">
     <h2 class="producers-component_title">
-      Dostępne marki
+      Wybierz markę
     </h2>
     <ul class="producers-component_list">
       <li class="producers-component_item" v-for="producer in producers" :key="producer._id">
@@ -48,14 +48,20 @@ export default {
     }
   }
   &_image {
-    height: 80px;
+    height: 55px;
     margin: 0 auto 5px;
     display: block;
     display: flex;
     align-items: center;
     justify-content: center;
+    @include media($tablet-big) {
+      height: 80px;
+    }
     img {
-      max-width: 80px;
+      max-width: 55px;
+      @include media($tablet-big) {
+        max-width: 80px;
+      }
       width: 100%;
     }
   }
