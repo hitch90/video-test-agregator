@@ -6,6 +6,9 @@ Meteor.methods({
   "channels.all"() {
     return Channels.find({}, { sort: { slug: 1 } }).fetch();
   },
+  "channels.homepage"() {
+    return Channels.find({}, { limit: 5 }).fetch();
+  },
   "channels.id"(id) {
     return Channels.findOne({ _id: id });
   },

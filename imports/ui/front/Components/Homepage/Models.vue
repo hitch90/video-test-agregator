@@ -3,7 +3,7 @@
     <h2 class="models-component_title">
       Ostatnio dodane samochody
     </h2>
-    <models-list :models="models" />
+    <models-list :models="models" :items="4" />
   </div>
 </template>
 

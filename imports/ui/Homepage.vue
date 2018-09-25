@@ -8,7 +8,12 @@
       <producers-component :producers="producers" />
     </div>
     <div class="component-homepage_section models">
-      <models-component :models="models" />
+      <div>
+        <models-component :models="models" />
+      </div>
+      <div>
+        <channels-list :channels="channels" header="Nowe kanały" />
+      </div>
     </div>
     <div class="component-homepage_section videos">
       <videos-component :videos="videos" />
@@ -23,6 +28,7 @@ import PromoItems from "./front/Components/Homepage/Promo";
 import ProducersComponent from "./front/Components/Homepage/Producers";
 import ModelsComponent from "./front/Components/Homepage/Models";
 import VideosComponent from "./front/Components/Homepage/Videos";
+import ChannelsList from "./front/Components/Homepage/ChannelsList";
 export default {
   name: "homepage",
   computed: {
@@ -36,7 +42,8 @@ export default {
     PromoItems,
     ProducersComponent,
     ModelsComponent,
-    VideosComponent
+    VideosComponent,
+    ChannelsList
   },
   data() {
     return {
@@ -44,7 +51,8 @@ export default {
       weeklyVideos: null,
       promo: null,
       producers: null,
-      models: null
+      models: null,
+      channels: null
     };
   },
   mounted() {
@@ -66,6 +74,9 @@ export default {
       });
       Meteor.call("models.homepage", (error, result) => {
         this.models = result;
+      });
+      Meteor.call("channels.homepage", (error, result) => {
+        this.channels = result;
       });
     }
   }
@@ -96,6 +107,13 @@ export default {
       padding: 15px;
       @include media($tablet-big) {
         padding: 50px 0;
+      }
+    }
+    &.models {
+      @include media($tablet-big) {
+        display: grid;
+        grid-template-columns: 8fr 4fr;
+        grid-column-gap: 30px;
       }
     }
   }

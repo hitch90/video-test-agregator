@@ -7,7 +7,7 @@ Meteor.methods({
     return Models.find({}, { sort: { slug: 1 } }).fetch();
   },
   "models.homepage"() {
-    return Models.find({}, { limit: 10 }).fetch();
+    return Models.find({}, { limit: 8 }).fetch();
   },
   "models.id"(id) {
     return Models.findOne({ _id: id });

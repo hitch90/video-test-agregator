@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="models-list-component">
     <h2 class="models-list-component_title" v-if="header" v-html="header"></h2>
-    <ul class="models-list-component_list" :class="{'block': display == 'block'}">
+    <ul class="models-list-component_list" :class="{'block': display == 'block', 'is-4': items == 4 }">
       <li class="models-list-component_item" v-for="model in models" :key="model._id">
         <router-link :to="{ name: 'ModelPage', params: { slug: model.slug } }">
           <div class="models-list-component_image">
@@ -21,7 +21,7 @@
 <script>
 export default {
   name: "models-list-component",
-  props: ["producer", "models", "header", "display"],
+  props: ["producer", "models", "header", "display", "items"],
   data() {
     return {
       producers: null
@@ -95,6 +95,13 @@ export default {
         img {
           height: 140px;
         }
+      }
+    }
+    &.is-4 {
+      @include media($tablet-big) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
       }
     }
   }
