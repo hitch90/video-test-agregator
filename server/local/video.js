@@ -8,10 +8,13 @@ Meteor.methods({
     return Videos.find({}, { sort: { created_at: -1 } }).fetch();
   },
   "videos.weekly"() {
-    return Videos.find({
-      added: { $gte: getLastWeek() },
-      promo: false
-    }).fetch();
+    return Videos.find(
+      {
+        added: { $gte: getLastWeek() },
+        promo: false
+      },
+      { sort: { created_at: -1 } }
+    ).fetch();
   },
   "videos.search"(q) {
     var querystring = new RegExp(["\\b", q].join(""), "gim");
