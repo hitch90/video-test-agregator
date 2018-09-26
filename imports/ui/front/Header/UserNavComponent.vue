@@ -13,42 +13,36 @@
       </button>
       <b-dropdown-item>{{ langs.user_nav.my_profile }}</b-dropdown-item>
       <b-dropdown-item>{{ langs.user_nav.settings }}</b-dropdown-item>
-      <template v-if="user.username == 'admin'">
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminHomepage' }">{{ langs.user_nav.admin }}</router-link>
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminChannels' }">{{ langs.user_nav.channels_list }}</router-link>
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminChannels', query: {add: true} }">{{ langs.user_nav.channels_add }}</router-link>
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminProducers' }">{{ langs.user_nav.producers }}</router-link>
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminProducers', query: {add: true} }">{{ langs.user_nav.producers_add }}</router-link>
-        </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminHomepage' }">{{ langs.user_nav.admin }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminChannels' }">{{ langs.user_nav.channels_list }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminChannels', query: {add: true} }">{{ langs.user_nav.channels_add }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminProducers' }">{{ langs.user_nav.producers }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminProducers', query: {add: true} }">{{ langs.user_nav.producers_add }}</router-link>
+      </b-dropdown-item>
 
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminModels' }">{{ langs.user_nav.models }}</router-link>
-        </b-dropdown-item>
-        <b-dropdown-item>
-          <router-link :to="{ name: 'AdminModels', query: {add: true} }">{{ langs.user_nav.models_add }}</router-link>
-        </b-dropdown-item>
-      </template>
-
-      <b-dropdown-item><a href="#" @click.prevent="logout">{{ langs.user_nav.logout }}</a></b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminModels' }">{{ langs.user_nav.models }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminModels', query: {add: true} }">{{ langs.user_nav.models_add }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminVideos' }">{{ langs.user_nav.videos }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link>
+        <router-link :to="{ name: 'AdminVideos', query: {add: true} }">{{ langs.user_nav.videos_add }}</router-link>
+      </b-dropdown-item>
+      <b-dropdown-item has-link><a href="#" @click.prevent="logout">{{ langs.user_nav.logout }}</a></b-dropdown-item>
     </b-dropdown>
-    <div class="component-user-nav_account" v-if="user == null">
-      <font-awesome-icon :icon="['fas', 'user']" />
-      <router-link class="component-user-nav_link login" :to="{ name: 'login'}">
-          {{ langs.nav_bar.login }}
-      </router-link>
-      <router-link class="component-user-nav_link" :to="{ name: 'register'}">
-          {{ langs.nav_bar.register }}
-      </router-link>
-    </div>
   </div>
 </template>
 <script>

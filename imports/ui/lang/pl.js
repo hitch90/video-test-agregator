@@ -31,6 +31,8 @@ export default {
     producers: "Lista producentów",
     producers_add: "Dodaj producenta",
     models: "Lista modeli",
-    models_add: "Dodaj model"
+    models_add: "Dodaj model",
+    videos: "Lista filmów",
+    videos_add: "Dodaj film"
   }
 };

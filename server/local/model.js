@@ -6,8 +6,25 @@ Meteor.methods({
   "models.all"() {
     return Models.find({}, { sort: { slug: 1 } }).fetch();
   },
+  "models.search"(q) {
+    var querystring = new RegExp(["\\b", q].join(""), "i");
+
+    return Models.find({
+      $or: [
+        {
+          name: querystring
+        },
+        {
+          slug: querystring
+        },
+        {
+          description: querystring
+        }
+      ]
+    }).fetch();
+  },
   "models.homepage"() {
-    return Models.find({}, { limit: 8 }).fetch();
+    return Models.find({}, { sort: { _id: -1 }, limit: 8 }).fetch();
   },
   "models.id"(id) {
     return Models.findOne({ _id: id });

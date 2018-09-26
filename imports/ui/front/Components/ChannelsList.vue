@@ -6,7 +6,6 @@
         <router-link :to="{ name: 'ChannelPage', params: { slug: channel.slug } }" class="channels-list-component_link">
           <div class="channels-list-component_image">
             <img :src="channel.photo" :alt="channel.name" />
-            <!-- <span>{{ channel.producer.name }} {{ channel.model.name }}</span> -->
           </div>
           <p>
             {{ channel.name }}

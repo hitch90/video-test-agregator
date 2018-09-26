@@ -14,6 +14,7 @@ import ProducerPage from "/imports/ui/Producer";
 import ModelPage from "/imports/ui/Models";
 import ChannelPage from "/imports/ui/Channel";
 import VideoPage from "/imports/ui/Video";
+import SearchPage from "/imports/ui/Search";
 export default [
   {
     path: "/",
@@ -94,6 +95,11 @@ export default [
     path: "/v/:id",
     name: "VideoPage",
     component: VideoPage
+  },
+  {
+    path: "/search/:querystring",
+    name: "SearchPage",
+    component: SearchPage
   }
   // {
   //   path: "/page/:slug/:id",

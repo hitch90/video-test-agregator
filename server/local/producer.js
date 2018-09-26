@@ -6,6 +6,23 @@ Meteor.methods({
   "producers.all"() {
     return Producers.find({}, { sort: { name: 1 } }).fetch();
   },
+  "producers.search"(q) {
+    var querystring = new RegExp(["\\b", q].join(""), "i");
+
+    return Producers.find({
+      $or: [
+        {
+          name: querystring
+        },
+        {
+          slug: querystring
+        },
+        {
+          description: querystring
+        }
+      ]
+    }).fetch();
+  },
   "producers.id"(id) {
     return Producers.findOne({ _id: id });
   },

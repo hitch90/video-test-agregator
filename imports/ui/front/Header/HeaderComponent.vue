@@ -4,6 +4,7 @@
       <logo-component class="component-header_logo" />
       <div class="component-header_navWrapper">
         <nav-component class="component-header_nav" />
+        <search-component />
         <user-nav-component class="component-header_usernav" />
       </div>
     </div>
@@ -15,6 +16,7 @@ import SelectLangComponent from "./SelectLangComponent";
 import UserNavComponent from "./UserNavComponent";
 import LogoComponent from "./Logo";
 import NavComponent from "./Nav";
+import SearchComponent from './Search';
 export default {
   name: "header-component",
   computed: {
@@ -27,7 +29,8 @@ export default {
     SelectLangComponent,
     UserNavComponent,
     LogoComponent,
-    NavComponent
+    NavComponent,
+    SearchComponent
   },
   data() {
     return {};

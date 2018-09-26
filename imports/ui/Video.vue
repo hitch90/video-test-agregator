@@ -33,7 +33,9 @@
     <div class="video-page_content">
       <video-component :id="video.video_id" />
       <h2 class="video-page_title">
-        {{ video.name }}
+        <span>{{ video.name }}</span>
+        <clap-component :clap-count="video.clap ? video.clap : 0" />
+
       </h2>
       <div class="video-page_desc" v-html="renderDesc"></div>
     </div>
@@ -52,7 +54,7 @@ import ModelsList from "./front/Components/ModelsList";
 import ChannelsList from "./front/Components/ChannelsList";
 import VideoComponent from "./front/Components/YTVideo";
 import anchorme from "anchorme";
-
+import ClapComponent from "./front/Components/Clap";
 export default {
   name: "video-page",
   computed: {
@@ -72,7 +74,13 @@ export default {
       });
     }
   },
-  components: { VideosList, ModelsList, ChannelsList, VideoComponent },
+  components: {
+    VideosList,
+    ModelsList,
+    ChannelsList,
+    VideoComponent,
+    ClapComponent
+  },
   data() {
     return {
       video: null,
@@ -89,12 +97,6 @@ export default {
     init() {
       Meteor.call("videos.id", this.$route.params.id, (error, result) => {
         this.video = result;
-        // Meteor.call("producers.id", this.video.producer, (error, result) => {
-        //   this.producer = result;
-        // });
-        // Meteor.call("videos.producer", this.video.producer, (error, result) => {
-        //   this.otherModels = result;
-        // });
       });
       Meteor.call("channels.all", (error, result) => {
         this.channels = result;
@@ -123,6 +125,14 @@ export default {
     font: 600 26px/1.3 $font-primary;
     color: #000;
     margin: 30px 0;
+    display: flex;
+    align-items: center;
+    span {
+      flex: 1;
+    }
+    div {
+      width: 100px;
+    }
   }
   &_info {
   }

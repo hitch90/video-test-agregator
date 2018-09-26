@@ -13,6 +13,26 @@ Meteor.methods({
       promo: false
     }).fetch();
   },
+  "videos.search"(q) {
+    var querystring = new RegExp(["\\b", q].join(""), "gim");
+
+    return Videos.find({
+      $or: [
+        {
+          name: querystring
+        },
+        {
+          slug: querystring
+        },
+        {
+          description: querystring
+        },
+        {
+          tags: querystring
+        }
+      ]
+    }).fetch();
+  },
   "videos.promo"() {
     return Videos.findOne({ promo: true }, { sort: { created_at: -1 } });
   },
@@ -27,6 +47,10 @@ Meteor.methods({
   },
   "videos.id"(id) {
     return Videos.findOne({ _id: id });
+  },
+  "videos.clap"(_id) {
+    Videos.update({ _id }, { $inc: { clap: 1 } });
+    return true;
   },
   "videos.add"(product) {
     const isAdded = Videos.find({ _id: product._id }).count();

@@ -6,8 +6,25 @@ Meteor.methods({
   "channels.all"() {
     return Channels.find({}, { sort: { slug: 1 } }).fetch();
   },
+  "channels.search"(q) {
+    var querystring = new RegExp(["\\b", q].join(""), "gim");
+
+    return Channels.find({
+      $or: [
+        {
+          name: querystring
+        },
+        {
+          slug: querystring
+        },
+        {
+          description: querystring
+        }
+      ]
+    }).fetch();
+  },
   "channels.homepage"() {
-    return Channels.find({}, { limit: 5 }).fetch().reverse();
+    return Channels.find({}, { sort: { _id: -1 }, limit: 5 }).fetch();
   },
   "channels.id"(id) {
     return Channels.findOne({ _id: id });
