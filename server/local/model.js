@@ -24,7 +24,7 @@ Meteor.methods({
     }).fetch();
   },
   "models.homepage"() {
-    return Models.find({}, { sort: { _id: -1 }, limit: 8 }).fetch();
+    return Models.find({}, { sort: { _id: 1 }, limit: 8 }).fetch();
   },
   "models.id"(id) {
     return Models.findOne({ _id: id });
