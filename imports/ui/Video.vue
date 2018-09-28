@@ -20,7 +20,7 @@
               {{ video.model.name }}
             </router-link>
           </h3>
-          <p class="video-page_carEngine" v-if="engine">
+          <p class="video-page_carEngine" v-if="video.engine">
             <span class="video-page_option">Silnik</span> {{ video.engine.capacity }}, {{ video.engine.power }}KM<br />
             <span class="video-page_option">Maksymalny moment</span> {{ video.engine.torque }}<br />
             <span class="video-page_label" :class="video.engine.fuel">
