@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="promo-component" v-if="video">
-    <router-link :to="{ name: 'VideoPage', params: { id: video._id} }" class="video-component">
+    <!-- <router-link :to="{ name: 'VideoPage', params: { id: video._id} }" class="video-component">
       <div class="video-component_image">
         <img :src="video.photo" alt="Placeholder image">
         <span class="video-component_channelImg">
@@ -17,7 +17,20 @@
         <p class="video-component_name">{{ video.name }}</p>
         <div class="video-component_desc" v-html="video.description.substr(0, 360) + '...'" />
       </div>
-    </router-link>
+    </router-link> -->
+    <div class="promo-component_content">
+      <h2 class="promo-component_title">
+        Testy video w jednym miejscu
+      </h2>
+      <div class="promo-component_seoText">
+        <p>
+          Przed zakupem nowego samochodu warto zapoznać się z opiniami i testami o wybranym modelu. Na autodium znajdziesz wybrane testy video polskich twórców.
+        </p>
+        <p>
+          Na bieżąco powiększamy bazę testów i kanałów, tak abyś mógł zapoznać się z kilkoma opiniami o samochodzie, wkońcu każdy inaczej patrzy na motoryzację.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -96,6 +109,24 @@ export default {
       color: #969696;
       font: 400 14px/1.3 $font-secondary;
       padding: 0 15px;
+    }
+  }
+  &_content {
+    background: #f6f6f6;
+    padding: 35px;
+  }
+  &_title {
+    font: 600 26px/26px $font-primary;
+    color: #000;
+    margin: 0 0 25px;
+  }
+  &_seoText {
+    font: 400 16px/1.6 $font-secondary;
+    color: #000;
+    p {
+      & + p {
+        margin-top: 15px;
+      }
     }
   }
 }
