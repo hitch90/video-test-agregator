@@ -28,12 +28,12 @@ export default {
 
 .producers-component {
   &_title {
-    font: 600 18px/1.3 $font-primary;
+    font: 600 18px/1.3 $font-tertiary;
     color: #000;
     padding: 0 0 15px;
     @include media($tablet-big) {
       padding: 0 0 30px;
-      font: 600 26px/1.3 $font-primary;
+      font: 600 26px/1.3 $font-tertiary;
     }
   }
   &_list {

@@ -26,12 +26,12 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../../scss/_variable";
 
 .channels-list-component {
   &_title {
-    font: 600 26px/1.3 $font-primary;
+    font: 600 26px/1.3 $font-tertiary;
     color: #000;
     padding: 0 0 30px;
     span {

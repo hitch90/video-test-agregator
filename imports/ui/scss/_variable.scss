@@ -1,5 +1,6 @@
 $font-primary: "Ubuntu";
 $font-secondary: "Lato";
+$font-tertiary: "Playfair Display";
 @mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
   overflow: hidden;
   position: relative;

@@ -116,7 +116,7 @@ export default {
     padding: 35px;
   }
   &_title {
-    font: 600 26px/26px $font-primary;
+    font: 600 26px/26px $font-tertiary;
     color: #000;
     margin: 0 0 25px;
   }

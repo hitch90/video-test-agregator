@@ -33,12 +33,12 @@ export default {
 
 .weekly-component {
   &_title {
-    font: 600 18px/1.3 $font-primary;
+    font: 600 18px/1.3 $font-tertiary;
     color: #000;
     margin: 0 0 15px;
     text-transform: capitalize;
     @include media($tablet-big) {
-      font: 600 26px/1.3 $font-primary;
+      font: 600 26px/1.3 $font-tertiary;
       margin: 0 0 30px;
     }
   }

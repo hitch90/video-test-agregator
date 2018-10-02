@@ -37,7 +37,7 @@ export default {
 .app {
   padding: 60px 0 0;
   min-height: 100vh;
-  font-family: $font-primary;
+  font-family: $font-secondary;
 }
 .wrapper {
   max-width: 1280px;
