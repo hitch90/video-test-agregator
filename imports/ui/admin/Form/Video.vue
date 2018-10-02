@@ -216,7 +216,7 @@ export default {
         tags: [],
         promo: false,
         added: new Date(),
-        duration: null
+        duration: "PT0M0S"
       },
       models: null,
       producers: null,
@@ -235,13 +235,14 @@ export default {
   methods: {
     videoInfo() {
       getVideoInfo(this.form.sourceId).then(response => {
-        console.log(response);
         this.form.video_id = response.data.items[0].id;
         this.form.name = response.data.items[0].snippet.title;
         this.form.description = response.data.items[0].snippet.description;
         this.form.photo = response.data.items[0].snippet.thumbnails.maxres.url;
         this.form.tags = response.data.items[0].snippet.tags;
-        this.form.duration = response.data.items[0].contentDetails.duration;
+        this.form.duration = response.data.items[0].contentDetails.duration
+          ? response.data.items[0].contentDetails.duration
+          : "PT0M0S";
       });
     },
     editCategory() {
