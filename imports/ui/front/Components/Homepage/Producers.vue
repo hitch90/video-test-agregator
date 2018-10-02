@@ -42,25 +42,25 @@ export default {
     grid-column-gap: 15px;
     grid-row-gap: 15px;
     @include media($tablet-big) {
-      grid-template-columns: repeat(8, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       grid-row-gap: 30px;
       grid-column-gap: 30px;
     }
   }
   &_image {
-    height: 55px;
+    height: 35px;
     margin: 0 auto 5px;
     display: block;
     display: flex;
     align-items: center;
     justify-content: center;
     @include media($tablet-big) {
-      height: 80px;
+      height: 45px;
     }
     img {
-      max-width: 55px;
+      max-width: 45px;
       @include media($tablet-big) {
-        max-width: 80px;
+        max-width: 55px;
       }
       width: 100%;
     }
