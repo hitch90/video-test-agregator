@@ -121,7 +121,7 @@ export default {
     margin: 0 0 25px;
   }
   &_seoText {
-    font: 400 16px/1.6 $font-secondary;
+    font: 400 16px/1.8 $font-secondary;
     color: #000;
     p {
       & + p {
