@@ -3,7 +3,7 @@
     <h2 class="search-page_title">
       Wyniki wyszukiwania dla: {{ $route.params.querystring }}
     </h2>
-    <div class="search-page_item" v-if="videos.length">
+    <div class="search-page_item" v-if="videos && videos.length">
       <h3 class="search-page_subtitle">
         Testy video
         <a href="#" @click="showMore">Zobacz więcej ></a>
@@ -11,25 +11,23 @@
       <videos-list :videos="videos" :show-items="items" />
     </div>
     <div class="search-page_items">
-      <div class="search-page_item" v-if="channels.length">
+      <div class="search-page_item" v-if="channels && channels.length">
         <h3 class="search-page_subtitle">
           Kanały
         </h3>
         <channels-list :channels="channels" />
       </div>
-      <div class="search-page_item" v-if="producers.length">
+      <div class="search-page_item" v-if="producers && producers.length">
         <h3 class="search-page_subtitle">
           Marki
         </h3>
-        <div v-for="item in producers">
-          {{ item.name }}
-        </div>
+        <search-result-list :list="producers" router-name="ProducerPage" />
       </div>
-      <div class="search-page_item" v-if="models.length">
+      <div class="search-page_item" v-if="models && models.length">
         <h3 class="search-page_subtitle">
           Modele
         </h3>
-
+        <search-result-list :list="models" router-name="ModelPage" />
       </div>
     </div>
   </div>
@@ -39,6 +37,7 @@ import { mapGetters } from "vuex";
 import VideosList from "./front/Components/VideosList";
 import ModelsList from "./front/Components/ModelsList";
 import ChannelsList from "./front/Components/ChannelsList";
+import SearchResultList from "./front/Components/SearchResultList";
 import anchorme from "anchorme";
 
 export default {
@@ -51,7 +50,8 @@ export default {
   components: {
     VideosList,
     ModelsList,
-    ChannelsList
+    ChannelsList,
+    SearchResultList
   },
   data() {
     return {
