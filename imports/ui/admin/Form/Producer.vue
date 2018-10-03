@@ -70,7 +70,8 @@ export default {
       form: {
         name: "",
         description: "",
-        photo: "/images/logos/"
+        photo: "/images/logos/",
+        count: 0
       }
     };
   },
@@ -88,7 +89,8 @@ export default {
         name: this.form.name,
         photo: this.form.photo,
         slug: this.form.name.toLowerCase().replace(/ /g, "-"),
-        description: this.form.description
+        description: this.form.description,
+        count: 0
       };
       if (this.action == "add") {
         Meteor.call("producers.add", producer, (error, result) => {

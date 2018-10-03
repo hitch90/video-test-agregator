@@ -45,6 +45,9 @@ Meteor.methods({
   "videos.model"(id) {
     return Videos.find({ "model._id": id }).fetch();
   },
+  "videos.countProducer"(id) {
+    return Videos.find({ "producer._id": id }).count();
+  },
   "videos.channel"(id) {
     return Videos.find({ "channel._id": id }).fetch();
   },
