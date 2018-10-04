@@ -24,8 +24,16 @@ export default {
     return {
       producer: null,
       models: null,
-      videos: null
+      videos: null,
+      title: ""
     };
+  },
+  head: {
+    title() {
+      return {
+        inner: this.title
+      };
+    }
   },
   mounted() {
     this.init();
@@ -37,6 +45,8 @@ export default {
         this.$route.params.slug,
         (error, result) => {
           this.producer = result;
+          this.title = `${this.producer.name}`;
+          this.$emit("updateHead");
           Meteor.call("models.producer", this.producer._id, (error, result) => {
             this.models = result;
           });

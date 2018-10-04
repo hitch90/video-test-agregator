@@ -43,8 +43,16 @@ export default {
       videos: null,
       producer: null,
       otherModels: null,
-      channels: null
+      channels: null,
+      title: ""
     };
+  },
+  head: {
+    title() {
+      return {
+        inner: this.title
+      };
+    }
   },
   mounted() {
     this.init();
@@ -58,6 +66,8 @@ export default {
         });
         Meteor.call("producers.id", this.model.producer, (error, result) => {
           this.producer = result;
+          this.title = `${this.producer.name} ${this.model.name}`;
+          this.$emit("updateHead");
         });
         Meteor.call("models.producer", this.model.producer, (error, result) => {
           this.otherModels = result;

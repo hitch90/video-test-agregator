@@ -3,6 +3,8 @@
 import Vue from "vue";
 import { Meteor } from "meteor/meteor";
 import VueRouter from "vue-router";
+import VueHead from "vue-head";
+
 import VueMeteorTracker from "vue-meteor-tracker";
 import routes from "/imports/startup/client/routes.js";
 import App from "/imports/ui/App.vue";
@@ -15,6 +17,7 @@ import solid from "@fortawesome/fontawesome-free-solid";
 fontawesome.library.add(solid);
 import Buefy from "buefy";
 import "buefy/lib/buefy.css";
+Vue.use(VueHead);
 Vue.use(Buefy);
 Vue.use(VueRouter);
 Vue.use(VueMeteorTracker);

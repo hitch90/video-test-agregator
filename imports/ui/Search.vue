@@ -62,6 +62,13 @@ export default {
       items: 5
     };
   },
+  head: {
+    title() {
+      return {
+        inner: `Wyniki wyszukiwania dla ${this.$route.params.querystring}`
+      };
+    }
+  },
   mounted() {
     this.init();
   },

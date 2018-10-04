@@ -60,8 +60,16 @@ export default {
       videos: null,
       producer: null,
       otherModels: null,
-      channels: null
+      channels: null,
+      title: ""
     };
+  },
+  head: {
+    title() {
+      return {
+        inner: this.title
+      };
+    }
   },
   mounted() {
     this.init();
@@ -70,15 +78,11 @@ export default {
     init() {
       Meteor.call("channels.slug", this.$route.params.slug, (error, result) => {
         this.channel = result;
+        this.title = `${this.channel.name}`;
+        this.$emit("updateHead");
         Meteor.call("videos.channel", this.channel._id, (error, result) => {
           this.videos = result;
         });
-        // Meteor.call("producers.id", this.channel.producer, (error, result) => {
-        //   this.producer = result;
-        // });
-        // Meteor.call("channels.producer", this.channel.producer, (error, result) => {
-        //   this.otherModels = result;
-        // });
       });
       Meteor.call("channels.all", (error, result) => {
         this.channels = result;
