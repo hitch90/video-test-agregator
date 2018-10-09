@@ -116,6 +116,9 @@ export default {
         grid-column-gap: 30px;
       }
     }
+    &.videos {
+      border: 0;
+    }
   }
   &_sectionWeekly {
     width: 100%;

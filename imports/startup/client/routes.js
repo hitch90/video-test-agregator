@@ -15,6 +15,8 @@ import ModelPage from "/imports/ui/Models";
 import ChannelPage from "/imports/ui/Channel";
 import VideoPage from "/imports/ui/Video";
 import SearchPage from "/imports/ui/Search";
+import SendPage from "/imports/ui/Send";
+import AboutPage from "/imports/ui/About";
 export default [
   {
     path: "/",
@@ -100,6 +102,16 @@ export default [
     path: "/search/:querystring",
     name: "SearchPage",
     component: SearchPage
+  },
+  {
+    path: "/send",
+    name: "SendPage",
+    component: SendPage
+  },
+  {
+    path: "/about",
+    name: "AboutPage",
+    component: AboutPage
   }
   // {
   //   path: "/page/:slug/:id",

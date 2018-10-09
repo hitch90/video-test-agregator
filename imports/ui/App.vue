@@ -6,6 +6,16 @@
         <router-view></router-view>
       </div>
     </transition>
+    <footer class="footer">
+      <div class="wrapper">
+        <p>
+          Nasza strona internetowa używa plików cookies (tzw. ciasteczka) w celach statystycznych, reklamowych oraz funkcjonalnych. Dzięki nim możemy indywidualnie dostosować stronę do twoich potrzeb. Każdy może zaakceptować pliki cookies albo ma możliwość wyłączenia ich w przeglądarce, dzięki czemu nie będą zbierane żadne informacje. <a rel="nofollow4wr" href="http://ciasteczka.eu/#jak-wylaczyc-ciasteczka">Dowiedz się więcej jak je wyłączyć</a>.
+        </p>
+        <p>
+          <strong>Autodium.pl</strong> jest agregatorem video testów z Youtube samochodów najpopularniejszych marek, m.in.: <strong>Audi</strong>, <strong>BMW</strong>, <strong>Hyundai</strong>, <strong>Renault</strong>, <strong>Opel</strong>, <strong>Kia</strong>, <strong>Ford</strong>, <strong>Alfa Romeo</strong> i wiele innych. Testy pochodzą z kanałów z serwisu Youtube.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
@@ -43,6 +53,22 @@ export default {
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px 0;
+}
+.footer {
+  border-top: 1px solid #e6e6e6;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  p {
+    color: #7c7c7c;
+    font: 400 12px/1.6 $font-secondary;
+    & + p {
+      margin-top: 15px;
+    }
+    a {
+      color: #000;
+    }
+  }
 }
 .slide-left-leave {
   transform: translateX(0) scale(1);

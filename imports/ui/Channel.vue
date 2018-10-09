@@ -1,8 +1,5 @@
 <template>
   <div class="channel-page" v-if="channel">
-    <div class="channel-page_sidebar">
-      <h2 class="channel-page_subtitle">...</h2>
-    </div>
     <div class="channel-page_content">
       <h2 class="channel-page_title">
         <img :src="channel.photo" :alt="channel.name" />
@@ -19,11 +16,11 @@
         </span>
       </h2>
       <div class="channel-page_desc" v-html="renderDesc"></div>
-      <videos-list :videos="videos" items="2" header="Testy <span>video</span>" />
+      <videos-list :videos="videos" items="3" header="Testy <span>video</span>" />
     </div>
     <div class="channel-page_channels">
       <h2 class="channel-page_subtitle">
-        Kanały
+        Wszystkie kanały
       </h2>
       <channels-list :channels="channels" />
     </div>
@@ -101,7 +98,7 @@ export default {
 @import "./scss/_colors";
 .channel-page {
   display: grid;
-  grid-template-columns: 250px 7fr 2fr;
+  grid-template-columns: 7fr 2fr;
   grid-column-gap: 30px;
   &_sidebar {
     padding: 0 20px 20px;

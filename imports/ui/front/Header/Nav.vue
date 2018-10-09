@@ -8,10 +8,10 @@
         <a class="component-nav_link" href="#" @click.prevent="openMenu('channel')">Kanały</a>
       </li>
       <li class="component-nav_listItem">
-        <a class="component-nav_link" href="#">Prześlij film</a>
+        <router-link :to="{ name: 'SendPage' }" class="component-nav_link">Prześlij film</router-link>
       </li>
       <li class="component-nav_listItem">
-        <a class="component-nav_link" href="#">O nas</a>
+        <router-link :to="{ name: 'AboutPage' }" class="component-nav_link">O nas</router-link>
       </li>
     </ul>
     <producers-component class="component-nav_subNav" :producers="producers" :open="open" />
