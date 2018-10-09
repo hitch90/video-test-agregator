@@ -13,7 +13,7 @@
       </h2>
       <videos-list :videos="videos" items="2" />
       <div class="model-page_desc" v-html="model.description">
-      
+
       </div>
     </div>
     <div class="model-page_channels">
@@ -117,11 +117,6 @@ export default {
     font: 400 14px/1.8 $font-secondary;
     color: #000;
     padding: 30px 0;
-    p {
-      & + p {
-        margin: 15px 0 0;
-      }
-    }
   }
 }
 </style>

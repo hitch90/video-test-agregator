@@ -90,4 +90,11 @@ export default {
 .slide-left-leave-active {
   transition: transform 0.5s, opacity 0.4s;
 }
+.model-page {
+  p {
+    & + p {
+      margin: 15px 0 0;
+    }
+  }
+}
 </style>
