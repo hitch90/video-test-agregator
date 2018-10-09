@@ -39,6 +39,18 @@
         </li>
       </ul>
     </div>
+    <div class="about-page_section full">
+      <h3 class="about-page_subtitle">
+        Kanały z których filmy znajdziesz na Autodium.pl
+      </h3>
+      <ul class="about-page_list column-4">
+        <li v-for="channel in channels">
+          <router-link :to="{ name: 'ChannelPage', params: { slug: channel.slug } }">
+            {{ channel.name }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -55,7 +67,8 @@ export default {
   data() {
     return {
       producers: null,
-      models: null
+      models: null,
+      channels: null
     };
   },
   head: {
@@ -71,6 +84,9 @@ export default {
     });
     Meteor.call("models.all", (error, result) => {
       this.models = result;
+    });
+    Meteor.call("channels.all", (error, result) => {
+      this.channels = result;
     });
   }
 };

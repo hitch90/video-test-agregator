@@ -12,6 +12,9 @@
         {{ producer.name }} {{ model.name }}
       </h2>
       <videos-list :videos="videos" items="2" />
+      <div class="model-page_desc">
+        {{ model.description }}
+      </div>
     </div>
     <div class="model-page_channels">
       <engines-component :engines="model.engines" />
@@ -108,8 +111,17 @@ export default {
   }
   &_channels {
     padding: 0 20px 20px;
-
     border-left: 1px solid #e6e6e6;
+  }
+  &_desc {
+    font: 400 14px/1.8 $font-secondary;
+    color: #000;
+    padding: 30px 0;
+    p {
+      & + p {
+        margin: 15px 0 0;
+      }
+    }
   }
 }
 </style>
