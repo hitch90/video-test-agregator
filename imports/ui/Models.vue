@@ -12,8 +12,8 @@
         {{ producer.name }} {{ model.name }}
       </h2>
       <videos-list :videos="videos" items="2" />
-      <div class="model-page_desc">
-        {{ model.description }}
+      <div class="model-page_desc" v-html="model.description">
+      
       </div>
     </div>
     <div class="model-page_channels">
