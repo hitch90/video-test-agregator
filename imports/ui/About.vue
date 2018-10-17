@@ -98,23 +98,16 @@ export default {
   padding: 20px 0;
   @include media($tablet-big) {
     padding: 50px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 70px;
-    grid-row-gap: 50px;
-    grid-template-areas:
-      "text section"
-      "full full";
+    display: flex;
+    flex-wrap: wrap;
   }
   &_section {
-    grid-area: section;
-    &:first-of-type {
-      grid-area: text;
-    }
+    width: 50%;
+    padding: 30px 0;
     &.full {
-      grid-area: full;
+      width: 100%;
       border-top: 1px solid #e6e6e6;
-      padding: 30px 0 0;
+      padding: 30px 0 30px;
     }
   }
   &_title {

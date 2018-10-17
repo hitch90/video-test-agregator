@@ -114,12 +114,24 @@ export default {
 @import "./scss/_variable";
 @import "./scss/_colors";
 .video-page {
-  display: grid;
-  grid-template-columns: 250px 7fr 2fr;
-  grid-column-gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  @include media($tablet-big) {
+    display: grid;
+    grid-template-columns: 250px 7fr 2fr;
+    grid-column-gap: 30px;
+  }
+
   &_sidebar {
-    padding: 20px;
+    padding: 10px;
     background: #f8f8f8;
+    order: 2;
+    width: 100%;
+    @include media($tablet-big) {
+      order: inherit;
+      width: auto;
+      padding: 20px;
+    }
   }
   &_title {
     font: 600 26px/1.3 $font-primary;
@@ -142,6 +154,16 @@ export default {
     border-bottom: 1px solid #e6e6e6;
     margin: 0 0 30px;
     white-space: pre-wrap;
+  }
+  &_content {
+    order: 1;
+    width: 100%;
+    padding: 10px;
+    @include media($tablet-big) {
+      width: auto;
+      order: inherit;
+      padding: 0;
+    }
   }
   &_channel {
     display: flex;
@@ -203,8 +225,16 @@ export default {
     margin: 0 0 15px;
   }
   &_videos {
-    padding: 0 20px 20px;
     border-left: 1px solid #e6e6e6;
+    padding: 10px;
+    border-left: 1px solid #e6e6e6;
+    order: 3;
+    width: 100%;
+    @include media($tablet-big) {
+      order: inherit;
+      width: auto;
+      padding: 0 20px 20px;
+    }
   }
   &_label {
     font: 400 11px/25px $font-secondary;
